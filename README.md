@@ -4,22 +4,25 @@ A full-stack user management application built with React (TypeScript) frontend 
 
 ## Features
 
-- ✅ Create new users with form validation
+- ✅ **Separate pages** for viewing users and adding new users
+- ✅ **Navigation** between different views
+- ✅ Create new users with comprehensive form validation
 - ✅ View all users in a responsive table
-- ✅ Real-time updates when adding users
+- ✅ Real-time updates and success feedback
 - ✅ TypeScript interfaces shared between frontend and backend
 - ✅ Fully containerized with Docker
 - ✅ In-memory data storage
 - ✅ Form validation and error handling
-- ✅ Responsive design
+- ✅ Responsive design with modern UI
 
 ## Tech Stack
 
 ### Frontend
 - **React 18** with TypeScript
+- **React Router** for navigation and routing
 - **Vite** for build tooling
 - **Axios** for API calls
-- **CSS3** with modern styling
+- **CSS3** with modern styling and responsive design
 
 ### Backend
 - **Express.js** with TypeScript
@@ -43,7 +46,7 @@ A full-stack user management application built with React (TypeScript) frontend 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Fell-Arms/full-tilt-data
+   git clone <repository-url>
    cd user-management-system
    ```
 
@@ -89,19 +92,31 @@ user-management-system/
 ├── backend/                 # Express TypeScript API
 │   ├── src/
 │   │   ├── routes/         # API routes
+│   │   │   └── users.ts    # User endpoints
 │   │   ├── types/          # TypeScript interfaces
+│   │   │   └── user.ts     # User type definitions
 │   │   └── server.ts       # Main server file
 │   ├── Dockerfile
 │   ├── package.json
 │   └── tsconfig.json
 ├── frontend/               # React TypeScript app
 │   ├── src/
-│   │   ├── components/     # React components
+│   │   ├── components/     # Reusable React components
+│   │   │   ├── Navigation.tsx    # Navigation bar
+│   │   │   ├── UserList.tsx      # User table component
+│   │   │   └── UserForm.tsx      # User creation form
+│   │   ├── pages/          # Page components
+│   │   │   ├── UsersPage.tsx     # User listing page
+│   │   │   └── AddUserPage.tsx   # Add user page
 │   │   ├── services/       # API service layer
+│   │   │   └── api.ts      # HTTP client and API calls
 │   │   ├── types/          # TypeScript interfaces
-│   │   └── App.tsx         # Main app component
+│   │   │   └── user.ts     # User type definitions
+│   │   ├── App.tsx         # Main app with routing
+│   │   ├── App.css         # Global styles
+│   │   └── main.tsx        # React entry point
 │   ├── Dockerfile
-│   ├── nginx.conf
+│   ├── nginx.conf         # Nginx configuration
 │   ├── package.json
 │   └── vite.config.ts
 ├── docker-compose.yml      # Container orchestration
@@ -111,11 +126,23 @@ user-management-system/
 
 ## User Interface
 
-The application features:
-- **Add User Form**: Create new users with validation
-- **User List**: View all users in a clean table format
+The application features a clean, modern interface with:
+
+### Navigation
+- **Header Navigation**: Easy switching between "View Users" and "Add User" pages
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+
+### User Listing Page (`/`)
+- **User Table**: Displays all users with name, email, status, and creation date
 - **Status Indicators**: Visual badges for active/inactive users
-- **Responsive Design**: Works on desktop and mobile devices
+- **Refresh Button**: Manual data refresh capability
+- **Add User Link**: Quick access to user creation
+
+### Add User Page (`/add-user`)
+- **Form Validation**: Real-time client-side validation
+- **Success Feedback**: Confirmation message and automatic redirect
+- **Error Handling**: Clear error messages for failed submissions
+- **Navigation**: Easy return to user listing
 
 ## Data Model
 
@@ -133,12 +160,15 @@ interface User {
 
 ## Design Decisions
 
-1. **In-Memory Storage**: Used as specified in requirements for simplicity
-2. **Shared Types**: TypeScript interfaces duplicated between frontend/backend (ready for npm package extraction)
-3. **Form Validation**: Client-side and server-side validation for better UX
-4. **Docker Multi-stage**: Optimized production builds with smaller image sizes
-5. **Error Handling**: Comprehensive error handling on both frontend and backend
-6. **Health Checks**: Docker health checks for monitoring container status
+1. **Separate Pages**: Implemented dedicated pages for user listing and user creation as specified in requirements
+2. **React Router**: Added routing for better user experience and cleaner separation of concerns
+3. **In-Memory Storage**: Used as specified in requirements for simplicity
+4. **Shared Types**: TypeScript interfaces duplicated between frontend/backend (ready for npm package extraction)
+5. **Form Validation**: Client-side and server-side validation for better UX
+6. **Docker Multi-stage**: Optimized production builds with smaller image sizes
+7. **Error Handling**: Comprehensive error handling on both frontend and backend
+8. **Health Checks**: Docker health checks for monitoring container status
+9. **Navigation UX**: Clear navigation with active state indicators and success feedback
 
 ## Future Enhancements
 
@@ -158,6 +188,8 @@ interface User {
 - CORS is configured for cross-origin requests
 - TypeScript strict mode enabled for both projects
 - Environment variables supported via .env files
+- React Router handles client-side navigation
+- Form submissions include success feedback and automatic redirects
 
 ## License
 
