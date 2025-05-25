@@ -2,7 +2,49 @@
 
 A full-stack user management application built with React (TypeScript) frontend and Express (TypeScript) backend, containerized with Docker.
 
-## Features
+## 🚀 Quick Start
+
+### Prerequisites
+- Docker and Docker Compose installed
+- Git (for cloning)
+
+### Running the Application
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd user-management-system
+   ```
+
+2. **Start the application:**
+   ```bash
+   docker-compose up --build
+   ```
+
+3. **Access the application:**
+   - **Frontend**: http://localhost:3000
+   - **Backend API**: http://localhost:8080
+   - **Health check**: http://localhost:8080/health
+
+That's it! The application should be running with sample data already loaded.
+
+### Development Mode (Optional)
+
+If you want to run the application in development mode:
+
+1. **Backend (in `/backend` directory):**
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+2. **Frontend (in `/frontend` directory):**
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+## ✨ Features
 
 - ✅ **Separate pages** for viewing users and adding new users
 - ✅ **Navigation** between different views
@@ -15,7 +57,7 @@ A full-stack user management application built with React (TypeScript) frontend 
 - ✅ Form validation and error handling
 - ✅ Responsive design with modern UI
 
-## Tech Stack
+## 🏗️ Tech Stack
 
 ### Frontend
 - **React 18** with TypeScript
@@ -56,11 +98,13 @@ A full-stack user management application built with React (TypeScript) frontend 
    ```
 
 3. **Access the application:**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8080
-   - Health check: http://localhost:8080/health
+   - **Frontend**: http://localhost:3000
+   - **Backend API**: http://localhost:8080
+   - **Health check**: http://localhost:8080/health
 
-### Development Mode
+That's it! The application should be running with sample data already loaded.
+
+### Development Mode (Optional)
 
 If you want to run the application in development mode:
 
